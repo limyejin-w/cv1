@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>임예진의 포트폴리오 페이지 - 자기 소개 수정본</title>
+  <style>
+    :root{
+      /* 민트 컬러 디자인 유지: 차분한 퍼블릭 민트/청록 톤으로 유지 */
+      --navy:#0e5d7a;        /* 다크 남색 계열 - 상단 바탕의 주요 색상 */
+      --blue-dark:#0a4a66;   /* 어두운 파랑 계열 (상단 그라데이션 좌표용) */
+      --bg:#f3fbf9;           /* 밝은 민트 계열의 배경 */
+      --text:#0b1b1f;
+      --card:#ffffff;
+      --muted:#5b6b70;
+      --accent:#d6f5f0;        /* 밝은 민트 톤 보조 색상 */
+    }
+
+    *{box-sizing:border-box}
+    html, body { margin:0; padding:0; background:var(--bg); color:var(--text); font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", "Helvetica Neue", Arial, "Noto Sans Korean", sans-serif; }
+
+    /* 상단 소개 영역: 남색 그라데이션 대신 민트 계열 포인트 유지 */
+    header.hero{
+      background: linear-gradient(135deg, var(--blue-dark) 0%, var(--navy) 100%);
+      color:white;
+      padding: 48px 20px;
+    }
+    .container{ max-width: 1024px; margin:0 auto; padding:0 20px; }
+    .hero-inner{ display:flex; flex-wrap:wrap; align-items:center; gap:22px; }
+
+    .avatar{ width:110px; height:110px; border-radius:50%; display:flex; align-items:center; justify-content:center;
+             background: rgba(255,255,255,.25); border:2px solid rgba(255,255,255,.7); font-size:54px; }
+    .title-block{ flex:1 1 280px; min-width:260px; }
+    .name{ font-size:28px; font-weight:700; margin:6px 0 6px; }
+    .tag{ display:inline-block; padding:6px 12px; border-radius:999px; background: rgba(255,255,255,.25); font-size:13px; }
+    .field{ margin:8px 0; font-size:14px; }
+
+    /* 본문: 밝은 배경의 2단 구성 */
+    main.content{ background:#fff; padding:48px 0 60px; }
+    .grid{ display:grid; grid-template-columns: 1fr 1fr; gap:28px; align-items: start; }
+    .card{ background:var(--card); border-radius:14px; padding:22px; border:1px solid #e5e7eb; box-shadow:0 2px 8px rgba(0,0,0,.04); }
+    .card h3{ margin:0 0 8px 0; font-size:18px; color:var(--navy); }
+    .card p{ margin:.25rem 0; color:var(--muted); line-height:1.7; }
+
+    .badge-row{ display:flex; flex-wrap:wrap; gap:8px; margin-top:8px; }
+    .badge{ display:inline-flex; align-items:center; gap:6px; padding:6px 10px; border-radius:999px;
+            background:#e2f0f0; color:#0f2a3a; font-weight:600; font-size:12px; }
+    .emoji{ font-size:18px; }
+
+    .highlight{ font-weight:700; color:#0f2a3a; }
+
+    /* 색상 강제 설정: 인스타그램 아이디와 목표 글씨를 검정으로 표시 (요청 반영) */
+    .instagram-label, .target-label { color: #000; font-weight: 700; }
+    .instagram-value, .target-value { color: #000; font-weight: 600; }
+
+    @media (max-width: 900px){
+      .hero-inner{ align-items:flex-start; }
+      .avatar{ width:90px; height:90px; font-size:48px; }
+    }
+    @media (max-width: 640px){
+      .grid{ grid-template-columns: 1fr; }
+      header.hero{ padding:28px 0; }
+    }
+
+    .sr-only{ position:absolute; width:1px; height:1px; padding:0; overflow:hidden; clip: rect(0,0,0,0); white-space: nowrap; border:0; }
+  </style>
+</head>
+<body>
+
+  <header class="hero" aria-label="상단 소개 영역">
+    <div class="container hero-inner">
+      <div class="avatar" aria-label="프로필 아이콘" title="프로필 아이콘">👤</div>
+
+      <div class="title-block">
+        <h1 class="name">임예진</h1>
+        <div class="tag" title="소속/학년">소속: 경영학과 3학년</div>
+
+        <div class="field" aria-label="관심 분야">
+          <strong>관심 분야</strong>: 유통·마케팅
+        </div>
+
+        <div class="field" aria-label="좋아하는 것 3가지">
+          <strong>좋아하는 것 3가지</strong>:
+          <div class="badge-row" style="margin-top:6px;">
+            <span class="badge" title="영화보기"><span class="emoji" aria-label="영화">🎬</span> 영화보기</span>
+            <span class="badge" title="뷰티업계"><span class="emoji" aria-label="뷰티업계">💄</span> 뷰티업계</span>
+            <span class="badge" title="산책"><span class="emoji" aria-label="산책">🚶</span> 산책</span>
+          </div>
+        </div>
+
+        <!-- 인스타그램 텍스트: 색상 검정으로 고정 -->
+        <div class="field instagram-label" aria-label="인스타그램 아이디">
+          <strong>소셜</strong>:
+          <span class="instagram-value" style="margin-left:8px; background:var(--accent); padding:6px 10px; border-radius:8px; color:#000; font-weight:600;">
+            Instagram: @cmuyzn
+          </span>
+        </div>
+
+        <!-- 목표 한 줄 텍스트: 색상 검정으로 고정 -->
+        <div class="field target-label" aria-label="목표 한 줄">
+          <strong>목표 한 줄</strong>:
+          <span class="target-value" style="margin-left:8px; background:var(--accent); padding:6px 10px; border-radius:8px; color:#000; font-weight:600;">
+            화장품 회사 취업
+          </span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="content" role="main" aria-label="본문 영역">
+    <div class="container grid">
+      <section class="card" aria-label="자기 소개 확장">
+        <h3>자기 소개</h3>
+
+        <p>저는 임예진으로, 경영학과 3학년 학생입니다. 사용자 경험과 비즈니스 가치를 잇는 역할에 관심이 많으며, 실제 문제를 작은 단위로 쪼개 해결하는 것을 즐깁니다. 팀에서 아이디어를 명확히 표현하고 실무와 연결되는 솔루션을 제시하는 것을 선호합니다.</p>
+
+        <p>학부 과정에서 데이터 기반 의사결정과 고객 여정 분석에 흥미를 갖게 되었고, 이를 바탕으로 직관적이고 효율적인 솔루션을 구상하는 데 집중하고 있습니다. 다학제 협업 속에서 아이디어를 구체화하고 피드백을 수용하는 능력을 키워왔습니다.</p>
+
+        <p>제 강점은 구조화된 사고와 체계적 실행입니다. 요구사항을 큰 그림에서 세부 컴포넌트로 나누고, 우선순위를 정해 단계적으로 구현합니다. 또한 명확한 커뮤니케이션으로 팀원들이 기술적 선택의 이유를 쉽게 이해하도록 돕습니다.</p>
+
+        <p>앞으로의 목표는 실무형 포트폴리오를 통해 화장품 산업의 마케터/제품 기획자와 긴밀히 협업하는 프런트엔드 개발자로 성장하는 것입니다. 유통·마케팅 도메인에 특화된 UX 설계와 협업 파이프라인의 체계화를 통해 비즈니스 가치를 높이고자 합니다.</p>
+      </section>
+
+      <section class="card" aria-label="강점과 협업 포부">
+        <h3>강점/협업 포부</h3>
+        <ul style="margin:0; padding-left:1.2em; line-height:1.8;">
+          <li>문제 해결 능력: 요구사항을 큰 그림에서 작은 단위로 분해하고 차근차근 구현합니다.</li>
+          <li>학습 속도: 새로운 도구나 기술을 빠르게 습득해 실무에 적용합니다.</li>
+          <li>커뮤니케이션: 비전문가에게도 의사결정의 이유를 명확히 설명합니다.</li>
+          <li>협업 의지: 기획자/디자이너/백엔드와 긴밀히 협업해 목표를 달성합니다.</li>
+          <li>포부: 실무형 포트폴리오를 구축하고, 유통·마케팅 도메인에 특화된 UI/UX 설계를 강화합니다.</li>
+        </ul>
+
+        <div class="badge-row" aria-label="추가 배지">
+          <span class="badge" title="포트폴리오 구조">🧭 포트폴리오 구조</span>
+          <span class="badge" title="실무 적용">💼 실무 적용</span>
+          <span class="badge" title="협업 중심">🤝 협업 중심</span>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <p class="sr-only" id="skip-links">상단 소개 영역과 확장된 자기 소개 본문으로 구성된 페이지.</p>
+
+</body>
+</html>
